@@ -3,14 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
   </head>
   <body>
+    <button id="add">Add New Book</button>
+    <div>
+      <form name="addBook" action="">
+        <input type="text" name="name" id="titleId" value="title" />
+        <input type="text" name="name" id="authorId" value="author" />
+        <input type="text" name="name" id="pagesId" value="numberOfPages" />
+        <input type="text" name="name" id="readingId" value="readStatus" />
+        <input
+          type="button"
+          name="submit"
+          value="Submit"
+          onclick="addBookToLibrary()"
+        />
+      </form>
+    </div>
     <div id="bookDisplay"></div>
   </body>
 
   <script>
-    let myLibrary = ["harry potter", "elmo", "third book"];
+    let myLibrary = [];
 
     function Book(title, author, numberOfPages, readStatus) {
       this.title = title;
@@ -20,14 +36,18 @@
     }
 
     function addBookToLibrary() {
-      console.log("!23");
+      title = document.getElementById("titleId").value;
+      author = document.getElementById("authorId").value;
+      numberOfPages = document.getElementById("readingId").value;
+      readStatus = document.getElementById("readingId").value;
+      myLibrary.push(new Book(title, author, numberOfPages, readStatus));
     }
 
     function displayBooks() {
       for (let i = 0; i < myLibrary.length; i++) {
         item = document.createElement("div");
-        item.className = "cell";
-        item.innerHTML = myLibrary[i];
+        item.className = "cells";
+        item.innerHTML = myLibrary[i].title;
         document.getElementById("bookDisplay").appendChild(item);
       }
     }
