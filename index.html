@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="bookDisplay"></div>
+  </body>
+
+  <script>
+    let myLibrary = ["harry potter", "elmo", "third book"];
+
+    function Book(title, author, numberOfPages, readStatus) {
+      this.title = title;
+      this.author = author;
+      this.numberOfPages = numberOfPages;
+      this.readStatus = readStatus;
+    }
+
+    function addBookToLibrary() {
+      console.log("!23");
+    }
+
+    function displayBooks() {
+      for (let i = 0; i < myLibrary.length; i++) {
+        item = document.createElement("div");
+        item.className = "cell";
+        item.innerHTML = myLibrary[i];
+        document.getElementById("bookDisplay").appendChild(item);
+      }
+    }
+  </script>
+</html>
