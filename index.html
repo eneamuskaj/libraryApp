@@ -10,10 +10,14 @@
     <button id="add">Add New Book</button>
     <div>
       <form name="addBook" action="">
-        <input type="text" name="name" id="titleId" value="title" />
-        <input type="text" name="name" id="authorId" value="author" />
-        <input type="text" name="name" id="pagesId" value="numberOfPages" />
-        <input type="text" name="name" id="readingId" value="readStatus" />
+        <label>Title: </label>
+        <input type="text" name="name" id="titleId" value="title" /></br>
+        <label>Author: </label>
+        <input type="text" name="name" id="authorId" value="author" /></br>
+        <label>Number Of Pages: </label>
+        <input type="text" name="name" id="pagesId" value="numberOfPages" /></br>
+        <label>Reading: </label>
+        <input type="text" name="name" id="readingId" value="readStatus" /></br>
         <input
           type="button"
           name="submit"
@@ -22,7 +26,9 @@
         />
       </form>
     </div>
+    <div id="catcher">
     <div id="bookDisplay"></div>
+  </div>
   </body>
 
   <script>
@@ -38,17 +44,39 @@
     function addBookToLibrary() {
       title = document.getElementById("titleId").value;
       author = document.getElementById("authorId").value;
-      numberOfPages = document.getElementById("readingId").value;
+      numberOfPages = document.getElementById("pagesId").value;
       readStatus = document.getElementById("readingId").value;
       myLibrary.push(new Book(title, author, numberOfPages, readStatus));
+      displayBooks()
     }
 
     function displayBooks() {
+      var remover = document.getElementById("bookDisplay");
+      remover.remove();
+      newTable = document.createElement("div");
+      newTable.id ="bookDisplay";
+      document.getElementById("catcher").appendChild(newTable);
       for (let i = 0; i < myLibrary.length; i++) {
         item = document.createElement("div");
-        item.className = "cells";
-        item.innerHTML = myLibrary[i].title;
+        item.id = "cells"+i;
+        item.className ="cells"
         document.getElementById("bookDisplay").appendChild(item);
+        itemParahraph1 = document.createElement("p");
+        itemParahraph2 = document.createElement("p");
+        itemParahraph3 = document.createElement("p");
+        itemParahraph4 = document.createElement("p");
+        removeButton = document.createElement("button")
+        removeButton.id = [i]
+        document.getElementById("cells"+i).appendChild(itemParahraph1);
+        document.getElementById("cells"+i).appendChild(itemParahraph2);
+        document.getElementById("cells"+i).appendChild(itemParahraph3);
+        document.getElementById("cells"+i).appendChild(itemParahraph4);
+        document.getElementById("cells"+i).appendChild(removeButton);
+        itemParahraph1.innerHTML = myLibrary[i].title;
+        itemParahraph2.innerHTML = myLibrary[i].author;
+        itemParahraph3.innerHTML = myLibrary[i].numberOfPages;
+        itemParahraph4.innerHTML = myLibrary[i].readStatus;
+        removeButton.innerHTML="remove";
       }
     }
   </script>
