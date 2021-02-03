@@ -4,26 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;700&display=swap" rel="stylesheet">
     <title>Document</title>
   </head>
   <body>
-    <button id="add">Add New Book</button>
     <div>
+    <h1>Personal Library</h1>
+  </div>
+    <div>
+      <div class="inputForm">
       <form name="addBook" action="">
         <label>Title: </label>
-        <input type="text" name="name" id="titleId" value="title" /></br>
+        <input type="text" name="name" id="titleId" value="" placeholder="Title Name" /></br>
         <label>Author: </label>
-        <input type="text" name="name" id="authorId" value="author" /></br>
+        <input type="text" name="name" id="authorId" value="" placeholder="Author Name" /></br>
         <label>Number Of Pages: </label>
-        <input type="text" name="name" id="pagesId" value="numberOfPages" /></br>
-        <label>Reading: </label>
-        <input type="text" name="name" id="readingId" value="readStatus" /></br>
+        <input type="text" name="name" id="pagesId" value="" placeholder="Number Of Pages"/></br>
+        <label>Have i read it? </label>
+        <input type="checkbox" name="name" id="readingId" checked/></br>
         <input
           type="button"
           name="submit"
           value="Submit"
           onclick="addBookToLibrary()"
         />
+      
       </form>
     </div>
     <div id="catcher">
@@ -45,7 +51,12 @@
       title = document.getElementById("titleId").value;
       author = document.getElementById("authorId").value;
       numberOfPages = document.getElementById("pagesId").value;
-      readStatus = document.getElementById("readingId").value;
+      if (document.getElementById("readingId").checked) {
+        readStatus = "Yes";
+      } else {
+        readStatus = "No";
+      }
+       
       myLibrary.push(new Book(title, author, numberOfPages, readStatus));
       displayBooks()
     }
@@ -67,16 +78,37 @@
         itemParahraph4 = document.createElement("p");
         removeButton = document.createElement("button")
         removeButton.id = [i]
+        checkedButton = document.createElement("input");
+        checkedButton.type ="checkbox";
+        checkedButton.id= "button"+i;
+        checkedButton.checked = myLibrary[i].readStatus;
+        document.getElementById("cells"+i).appendChild(removeButton);
         document.getElementById("cells"+i).appendChild(itemParahraph1);
         document.getElementById("cells"+i).appendChild(itemParahraph2);
         document.getElementById("cells"+i).appendChild(itemParahraph3);
         document.getElementById("cells"+i).appendChild(itemParahraph4);
-        document.getElementById("cells"+i).appendChild(removeButton);
-        itemParahraph1.innerHTML = myLibrary[i].title;
-        itemParahraph2.innerHTML = myLibrary[i].author;
-        itemParahraph3.innerHTML = myLibrary[i].numberOfPages;
-        itemParahraph4.innerHTML = myLibrary[i].readStatus;
+        document.getElementById("cells"+i).appendChild(checkedButton);
+        
+        
+        itemParahraph1.innerHTML = "Title: " + myLibrary[i].title;
+        itemParahraph2.innerHTML = "Author: " + myLibrary[i].author;
+        itemParahraph3.innerHTML = "Number Of Pages: " + myLibrary[i].numberOfPages;
+        itemParahraph4.innerHTML = "Have i read it? " +myLibrary[i].readStatus;
         removeButton.innerHTML="remove";
+        document.getElementById(i).addEventListener("click", function () {
+          myLibrary.splice(i,1)
+          displayBooks();
+        })
+        document.getElementById("button"+i).addEventListener("click", function() {
+          if (myLibrary[i].readStatus === "Yes") {
+            myLibrary[i].readStatus = "No";
+            displayBooks();
+          }
+          else {
+            myLibrary[i].readStatus = "Yes";
+            displayBooks();
+          }
+        })
       }
     }
   </script>

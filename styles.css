@@ -1,8 +1,38 @@
+body {
+  background-color: rgb(127, 107, 165);
+}
 #bookDisplay {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
 }
 
 .cells {
-  background-color: grey;
+  background-color: #79bc43;
+  color: rgb(79, 70, 105);
+  font-family: "Big Shoulders Display", cursive;
+  font-size: x-large;
+  padding-left: 3px;
+  border: solid rgb(70, 49, 104);
+}
+
+.inputForm {
+  background-color: rgb(87, 73, 109);
+  color: wheat;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: x-large;
+  width: 150px;
+  float: left;
+  padding-left: 3px;
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 3px 35px 3px 15px;
+
+  margin-left: 6px;
+  position: relative;
+}
+
+h1 {
+  font-family: "Big Shoulders Display", cursive;
+  font-size: x-large;
+  text-align: center;
 }
