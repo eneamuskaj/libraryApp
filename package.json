@@ -1,0 +1,28 @@
+{
+  "name": "libraryapp",
+  "version": "1.0.0",
+  "description": "Live Version : https://eneamuskaj.github.io/libraryApp/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eneamuskaj/libraryApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eneamuskaj/libraryApp/issues"
+  },
+  "homepage": "https://github.com/eneamuskaj/libraryApp#readme",
+  "devDependencies": {
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "firebase": "^9.5.0"
+  }
+}

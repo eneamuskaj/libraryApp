@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    
+  </head>
+  <body>
+    <div>
+    <h1>Personal Library</h1>
+    <div class="inputForm">
+    <form class="add">
+      <label for="title">Title:</label>
+      <input type="text" name="title"  id="titleId" required>
+      <label for="author">Author:</label>
+      <input type="text" name="author" id="authorId" required>
+      <label for="pages">Pages:</label>
+      <input type="number" name="pages"  id="pagesId" required>
+      <label for="checkbox">Have i read it?</label>
+      <input id="checkbox" type="checkbox" name="read"  checked/>
+      <button>add a new book</button>
+    </form></div>
+  
+    <!-- <form class="delete">
+      <label for="id">Document id:</label>
+      <input type="text" name="id" required>
+  
+      <button>delete a book</button>
+    </form>
+
+    <form class="update">
+      <label for="id">Document id:</label>
+      <input type="text" name="id" required>
+  
+      <button>update a book</button>
+    </form> -->
+    <div id="catcher">
+<div id="bookDisplay"></div>
+</div>
+
+
+  
+  <!-- </div>
+    <div>
+      <div class="inputForm">
+      <form name="addBook" action="">
+        <label>Title: </label>
+        <input type="text" name="name" id="titleId" value="" placeholder="Title Name" /></br>
+        <label>Author: </label>
+        <input type="text" name="name" id="authorId" value="" placeholder="Author Name" /></br>
+        <label>Number Of Pages: </label>
+        <input type="text" name="name" id="pagesId" value="" placeholder="Number Of Pages"/></br>
+        <label>Have i read it? </label>
+        <input type="checkbox" name="name" id="readingId" checked/></br>
+        <input
+          type="button"
+          name="submit"
+          value="Submit"
+          onclick="addBookToLibrary()"
+        />
+      
+      </form>
+    </div>
+    <div id="catcher">
+    <div id="bookDisplay"></div>
+  </div> -->
+  </body>
+  <script src="main.js"></script>
+</html>

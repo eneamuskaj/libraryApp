@@ -3,7 +3,9 @@ body {
 }
 #bookDisplay {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px;
 }
 
 .cells {
@@ -26,11 +28,17 @@ body {
   display: inline-block;
   box-sizing: content-box;
   padding: 3px 35px 3px 15px;
-
-  margin-left: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
   position: relative;
 }
-
+input {
+  width: 100%;
+}
+#checkbox {
+  width: auto;
+  float: right;
+}
 h1 {
   font-family: "Big Shoulders Display", cursive;
   font-size: x-large;
